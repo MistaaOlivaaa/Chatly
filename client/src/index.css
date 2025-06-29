@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text font-body;
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-chat/90 backdrop-blur-md border border-accent/10 shadow-glass;
+  }
+  
+  .glow-effect {
+    @apply shadow-accent animate-glow;
+  }
+  
+  .message-bubble {
+    @apply relative rounded-2xl px-5 py-3 max-w-lg shadow-lg font-body text-base;
+    background: linear-gradient(120deg, #1f2937 90%, #818cf8 100%);
+    color: #e5e7eb;
+  }
+  
+  .message-bubble.own {
+    @apply bg-accent text-background;
+    background: linear-gradient(120deg, #818cf8 80%, #a5b4fc 100%);
+    color: #111827;
+  }
+  
+  .message-bubble::before {
+    content: '';
+    @apply absolute -left-3 top-4 w-0 h-0 border-t-8 border-t-transparent border-r-8 border-r-chat border-b-8 border-b-transparent;
+  }
+  
+  .message-bubble.own::before {
+    @apply hidden;
+  }
+  
+  .message-bubble.own::after {
+    content: '';
+    @apply absolute -right-3 top-4 w-0 h-0 border-t-8 border-t-transparent border-l-8 border-l-accent border-b-8 border-b-transparent;
+  }
+  
+  .floating-dots {
+    @apply absolute w-2 h-2 bg-accent/30 rounded-full animate-float;
+  }
+  
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-focus text-background font-bold py-3 px-8 rounded-2xl shadow-accent transition-all duration-300 transform hover:scale-105 glow-effect text-lg tracking-wide;
+  }
+  
+  .btn-secondary {
+    @apply bg-chat/80 hover:bg-accent/10 text-text font-semibold py-3 px-6 rounded-xl transition-all duration-300 border border-accent/30 hover:border-accent shadow-md;
+  }
+  
+  .input-field {
+    @apply bg-chat/80 border border-accent/20 rounded-xl px-4 py-3 text-text placeholder-text-secondary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300 font-body text-base;
+  }
+  
+  .avatar {
+    @apply w-10 h-10 rounded-full bg-accent text-background flex items-center justify-center font-bold text-lg shadow-md;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
+
+/* Selection */
+::selection {
+  @apply bg-accent/30 text-text;
+}
+
+/* Focus outline */
+*:focus {
+  @apply outline-none;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+} 
