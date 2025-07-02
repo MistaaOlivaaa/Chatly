@@ -215,9 +215,7 @@ NODE_ENV=development
 ![chatlyinterface](https://github.com/user-attachments/assets/026955b0-db8a-49bf-b593-201745cdff9a)
 ![chat](https://github.com/user-attachments/assets/3277d109-d0d4-47c8-8dbb-5d2f5fbca337)
 
-## License
 
-MIT License - see LICENSE file for details
 
 ## Support
 
